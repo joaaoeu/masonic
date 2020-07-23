@@ -1,3 +1,25 @@
+# ⚠️ WARNING
+
+This fork is to keep the <strong>masonic v2.1.7</strong> locked with some fixies that currently are done only in the new versions of [oficial masonic](https://github.com/jaredLunde/masonic).
+
+Please, note that this <strong>HASN'T ANY UPDATES OR SUPPORT</strong>.
+
+<hr>
+
+# HOW TO USE
+
+Add in your <strong>package.json</strong> dependencies:
+
+```json
+"masonic": "git+https://github.com/joaaoeu/masonic.git",
+```
+
+<hr>
+
+## Fixies added to masonic v2.1.7
+
+- Fix height measurement in Chrome 84 https://github.com/jaredLunde/masonic/issues/28
+
 <hr>
 <div align="center">
   <h1 align="center">

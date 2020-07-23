@@ -448,31 +448,6 @@ const useForceUpdate = (): (() => void) => {
 
 const elementsCache: WeakMap<Element, number> = new WeakMap()
 
-interface ResizeObserverEntryBoxSize {
-  /**
-   * The length of the observed element's border box in the block dimension. For
-   * boxes with a horizontal
-   * [writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode),
-   * this is the vertical dimension, or height; if the writing-mode is vertical,
-   * this is the horizontal dimension, or width.
-   */
-  blockSize: number
-
-  /**
-   * The length of the observed element's border box in the inline dimension.
-   * For boxes with a horizontal
-   * [writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode),
-   * this is the horizontal dimension, or width; if the writing-mode is
-   * vertical, this is the vertical dimension, or height.
-   */
-  inlineSize: number
-}
-
-interface NativeResizeObserverEntry extends ResizeObserverEntry {
-  borderBoxSize: ResizeObserverEntryBoxSize
-  contentBoxSize: ResizeObserverEntryBoxSize
-}
-
 const getRefSetter = trieMemoize(
   [OneKeyMap, OneKeyMap, OneKeyMap],
   (
@@ -554,14 +529,8 @@ export const FreeMasonry: React.FC<FreeMasonryProps> = React.forwardRef(
 
           for (let i = 0; i < entries.length; i++) {
             const entry = entries[i]
-            // There are native resize observers that still don't have
-            // the borderBoxSize property. For those we fallback to the
-            // offset height of the target element.
-            const hasBorderBox =
-              (entry as NativeResizeObserverEntry).borderBoxSize !== void 0
-            const height = hasBorderBox
-              ? (entry as NativeResizeObserverEntry).borderBoxSize.blockSize
-              : (entry.target as HTMLElement).offsetHeight
+
+            const height = (entry.target as HTMLElement).offsetHeight
 
             if (height > 0) {
               const index = elementsCache.get(entry.target)
