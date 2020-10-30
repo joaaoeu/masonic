@@ -19,6 +19,7 @@ Add in your <strong>package.json</strong> dependencies:
 ## Fixies added to masonic v2.1.7
 
 - Fix height measurement in Chrome 84 https://github.com/jaredLunde/masonic/issues/28
+- Fixed react and react-dom versions due to conflict with the project react version
 
 <hr>
 <div align="center">
