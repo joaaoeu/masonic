@@ -528,7 +528,7 @@ export const FreeMasonry = /*#__PURE__*/ React.forwardRef(
     const measuredCount = positionCache.size
     const shortestColumnSize = positionCache.getShortestColumnSize()
     const children = []
-    const itemRole = role + 'item'
+    const itemRole = `${role}item`
     overscanBy = height * overscanBy
     stopIndex.current = void 0
     positionCache.range(
