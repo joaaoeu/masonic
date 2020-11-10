@@ -64,7 +64,7 @@
     "@lunde/babel-preset-es": "^1.0.1",
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^10.4.9",
-    "@testing-library/react-hooks": "^3.3.0",
+    "@testing-library/react-hooks": "^3.2.1",
     "@types/jest": "latest",
     "@types/react": "^16.12.0",
     "@types/react-dom": "^16.12.0",
